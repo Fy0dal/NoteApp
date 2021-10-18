@@ -42,9 +42,16 @@ namespace NoteAppUI
 
        
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
+      
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ProjectManager.SaveToFile(notes, @"D:\Reposit\json.txt");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ProjectManager.LoadFromFile(@"D:\Reposit\json.txt");
         }
     }
 }
