@@ -44,12 +44,20 @@ namespace NoteAppUI
        
 
       
-
+        /// <summary>
+        /// Сохранение в файл
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             ProjectManager.SaveToFile(notes, @"D:\Reposit\json.txt");
         }
-
+        /// <summary>
+        /// Загрузка из файла
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
 

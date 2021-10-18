@@ -17,6 +17,9 @@ namespace NoteApp
         private string _notetext;
         private DateTime __DateofCreateon;
         private DateTime _DateofLastEdit;
+        /// <summary>
+        /// Название заметки
+        /// </summary>
         public string Name
         {
             get 
@@ -37,6 +40,9 @@ namespace NoteApp
                 _name = value;
             }
         }
+        /// <summary>
+        /// Содержание 
+        /// </summary>
              public string NoteText
         {
             get 
@@ -52,6 +58,9 @@ namespace NoteApp
                 _notetext = value;
             }
         }
+        /// <summary>
+        /// Категории
+        /// </summary>
         public NoteCategory Category
         {
             get 
@@ -63,6 +72,9 @@ namespace NoteApp
                 _category = value; 
             }
         }
+        /// <summary>
+        /// Дата создания
+        /// </summary>
         public DateTime DateofCreation
         {
             get 
@@ -73,7 +85,9 @@ namespace NoteApp
                 __DateofCreateon = value; 
             }
         }
-
+        /// <summary>
+        /// Время последнего изменения
+        /// </summary>
         public DateTime DateOfLastEdit
         {
             get {
