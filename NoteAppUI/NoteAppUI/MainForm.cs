@@ -15,6 +15,7 @@ namespace NoteAppUI
     public partial class MainForm : Form
     {
         Project notes = new Project();
+        Project notes1 = new Project();
         public MainForm()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace NoteAppUI
             Note note1 = new Note(textBox1.Text, textBox2.Text, (NoteCategory)Convert.ToInt32(textBox3.Text));
             
             notes.Notes.Add(note1);
-            label1.Text = note1.Name + " " + note1.NoteText + " " + note1.Category + " " + note1.DateofCreation + " " + note1.DateOfLastEdit;
+            label1.Text = note1.Name + " || " + note1.NoteText + " || " + note1.Category + " || " + note1.DateofCreation + " ||  " + note1.DateOfLastEdit;
 
         }
 
@@ -51,7 +52,18 @@ namespace NoteAppUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ProjectManager.LoadFromFile(@"D:\Reposit\json.txt");
+
+            notes1 = ProjectManager.LoadFromFile(@"D:\Reposit\json.txt");
+            foreach (Note i in notes1.Notes)
+            {
+                label2.Text = i.Name + " || " + i.NoteText + " || " + i.Category + " || " + i.DateofCreation + " || " + i.DateOfLastEdit;
+            }
+            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
