@@ -10,6 +10,9 @@ namespace NoteApp
 {
     public static class ProjectManager
     {
+        /// <summary>
+        /// Сохранение и загрузка 
+        /// <summary>
         public static void SaveToFile(Project data, string filename)
         {
             JsonSerializer serializer = new JsonSerializer();
