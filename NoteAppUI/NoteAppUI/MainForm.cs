@@ -14,6 +14,9 @@ namespace NoteAppUI
     //comment
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Созданеи обьекта класса
+        /// </summary>
         Project notes = new Project();
         Project notes1 = new Project();
         public MainForm()
@@ -26,7 +29,11 @@ namespace NoteAppUI
         {
 
         }
-
+        /// <summary>
+        /// Прописан вывод в лейбл
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click_1(object sender, EventArgs e)
         {
             Note note1 = new Note(textBox1.Text, textBox2.Text, (NoteCategory)Convert.ToInt32(textBox3.Text));

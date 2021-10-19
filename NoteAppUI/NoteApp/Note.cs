@@ -18,7 +18,7 @@ namespace NoteApp
         private DateTime __DateofCreateon;
         private DateTime _DateofLastEdit;
         /// <summary>
-        /// Название заметки
+        /// Название заметки и исключения
         /// </summary>
         public string Name
         {
@@ -41,7 +41,7 @@ namespace NoteApp
             }
         }
         /// <summary>
-        /// Содержание 
+        /// Содержание и исключение
         /// </summary>
              public string NoteText
         {
