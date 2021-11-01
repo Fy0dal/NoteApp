@@ -28,10 +28,16 @@ namespace NoteApp
             }
             set
             {
+                /// <summary>
+                ///  Исключение не введенного названия
+                /// <summary>
                 if (value.Length == 0 || value == null)
                 {
                     throw new ArgumentException("Name not writed");
                 }
+                /// <summary>
+                ///  Исключение если название больше 50 символов
+                /// <summary>
                 if (value.Length > 50)
                 {
                     throw new ArgumentException("Name bigger 50 simvols");
@@ -51,6 +57,9 @@ namespace NoteApp
             }
             set
             {
+                ///<summary>
+                /// Исключение не введенного текста
+                ///</summary>
                 if (value == null)
                 {
                     throw new ArgumentException("Text not writed");
@@ -61,42 +70,17 @@ namespace NoteApp
         /// <summary>
         /// Категории
         /// </summary>
-        public NoteCategory Category
-        {
-            get 
-            { 
-                return _category; 
-            }
-            set 
-            {
-                _category = value; 
-            }
-        }
+        public NoteCategory Category { get; set; }
+           
         /// <summary>
         /// Дата создания
         /// </summary>
-        public DateTime DateofCreation
-        {
-            get 
-            { 
-                return __DateofCreateon; 
-            }
-            set {
-                __DateofCreateon = value; 
-            }
-        }
+        public DateTime DateofCreation { get; set; }
         /// <summary>
         /// Время последнего изменения
         /// </summary>
-        public DateTime DateOfLastEdit
-        {
-            get {
-                return _DateofLastEdit; 
-            }
-            set {
-                _DateofLastEdit = value; 
-            }
-        }
+        public DateTime DateOfLastEdit { get; set; }
+
         /// <summary>
         /// Конструктор значений заметки.
         /// </summary>
