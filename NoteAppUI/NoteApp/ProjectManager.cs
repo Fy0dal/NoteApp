@@ -16,10 +16,6 @@ namespace NoteApp
         /// <summary>
         /// Открываем поток для записи в файл с указанием пути. Вызываем сериализацию и передаем объект, который хотим сериализовать.
         /// <summary>
-
-
-
-
         public static void SaveToFile(Project data, string filename)
         {
             JsonSerializer serializer = new JsonSerializer();
@@ -34,7 +30,7 @@ namespace NoteApp
         /// <summary>
         /// Открываем поток для чтения из файла с указанием пути. Вызываем десериализацию и явно преобразуем результат в целевой тип данных.
         /// </summary>
-        /// <param name="filename">Название файла</param>
+        /// <param name="filename"></param>
         /// <returns></returns>
 
         public static Project LoadFromFile(string filename)
