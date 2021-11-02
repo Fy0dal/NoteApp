@@ -12,11 +12,27 @@ namespace NoteApp
     /// </summary>
     public class Note
     {
+        /// <summary>
+        /// Название
+        /// </summary>
         private string _name;
+        /// <summary>
+        /// Категория
+        /// </summary>
         private NoteCategory _category;
+        /// <summary>
+        /// Текст
+        /// </summary>
         private string _notetext;
+        /// <summary>
+        /// Время создания
+        /// </summary>
         private DateTime __DateofCreateon;
+        /// <summary>
+        /// Время изменения
+        /// </summary>
         private DateTime _DateofLastEdit;
+
         /// <summary>
         /// Название заметки и исключения
         /// </summary>
@@ -49,24 +65,8 @@ namespace NoteApp
         /// <summary>
         /// Содержание и исключение
         /// </summary>
-             public string NoteText
-        {
-            get 
-            { 
-                return _notetext; 
-            }
-            set
-            {
-                ///<summary>
-                /// Исключение не введенного текста
-                ///</summary>
-                if (value == null)
-                {
-                    throw new ArgumentException("Text not writed");
-                }
-                _notetext = value;
-            }
-        }
+             public string NoteText { get; set; }
+
         /// <summary>
         /// Категории
         /// </summary>

@@ -34,7 +34,7 @@ namespace NoteApp
         /// <summary>
         /// Открываем поток для чтения из файла с указанием пути. Вызываем десериализацию и явно преобразуем результат в целевой тип данных.
         /// </summary>
-        /// <param name="filename"></param>
+        /// <param name="filename">Название файла</param>
         /// <returns></returns>
 
         public static Project LoadFromFile(string filename)

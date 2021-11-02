@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace NoteApp
 {
     /// <summary>
-    /// Категории
+    /// Категории заметок.
     /// <summary>
     public enum NoteCategory
     {
