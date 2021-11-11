@@ -48,7 +48,6 @@ namespace NoteApp
             }
             set
             {
-                
                 //  Исключение не введенного названия
                 if (value.Length == 0 || value == null)
                 {
