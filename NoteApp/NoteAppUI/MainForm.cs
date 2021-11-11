@@ -59,7 +59,7 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            ProjectManager.SaveToFile(notes, @"D:\Reposit\json.txt");
+            ProjectManager.SaveToFile(notes);
         }
         /// <summary>
         /// Загрузка из файла
@@ -69,7 +69,7 @@ namespace NoteAppUI
         private void button3_Click(object sender, EventArgs e)
         {
 
-            notes1 = ProjectManager.LoadFromFile(@"D:\Reposit\json.txt");
+            notes1 = ProjectManager.LoadFromFile();
             foreach (Note i in notes1.Notes)
             {
                 label2.Text = i.Name + " || " + i.Text + " || " + i.Category 
