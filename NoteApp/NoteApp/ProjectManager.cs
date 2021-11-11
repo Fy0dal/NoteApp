@@ -14,7 +14,9 @@ namespace NoteApp
     public static class ProjectManager
     {
         /// <summary>
-        /// Открываем поток для записи в файл с указанием пути. Вызываем сериализацию и передаем объект, который хотим сериализовать.
+        /// Открываем поток для записи в файл с указанием пути.
+        /// Вызываем сериализацию и передаем объект,
+        /// который хотим сериализовать.
         /// <summary>
         public static void SaveToFile(Project data, string filename)
         {
@@ -23,12 +25,13 @@ namespace NoteApp
             using (StreamWriter sw = new StreamWriter(filename))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-              
                 serializer.Serialize(writer, data);
             }
         }
         /// <summary>
-        /// Открываем поток для чтения из файла с указанием пути. Вызываем десериализацию и явно преобразуем результат в целевой тип данных.
+        /// Открываем поток для чтения из файла с указанием пути. 
+        /// Вызываем десериализацию и явно преобразуем
+        /// результат в целевой тип данных.
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
@@ -40,7 +43,6 @@ namespace NoteApp
             using (StreamReader sr = new StreamReader(filename))
             using (JsonReader reader = new JsonTextReader(sr))
             {
-                
                 return (Project)serializer.Deserialize<Project>(reader);
             }
         }

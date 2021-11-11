@@ -16,25 +16,29 @@ namespace NoteApp
         /// Название
         /// </summary>
         private string _name;
+       
         /// <summary>
         /// Категория
         /// </summary>
         private NoteCategory _category;
+       
         /// <summary>
         /// Текст
         /// </summary>
-        private string _notetext;
+        private string _text;
+        
         /// <summary>
         /// Время создания
         /// </summary>
-        private DateTime __DateofCreateon;
+        private DateTime _TimeWhenCreated;
+       
         /// <summary>
         /// Время изменения
         /// </summary>
-        private DateTime _DateofLastEdit;
+        private DateTime _TimeWhenChanged;
 
         /// <summary>
-        /// Название заметки и исключения
+        /// Название заметки
         /// </summary>
         public string Name
         {
@@ -44,28 +48,25 @@ namespace NoteApp
             }
             set
             {
-                /// <summary>
-                ///  Исключение не введенного названия
-                /// <summary>
+                
+                //  Исключение не введенного названия
                 if (value.Length == 0 || value == null)
                 {
                     throw new ArgumentException("Name not writed");
                 }
-                /// <summary>
-                ///  Исключение если название больше 50 символов
-                /// <summary>
+                
+                //  Исключение если название больше 50 символов
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException("Name bigger 50 simvols");
-                   
+                    throw new ArgumentException("Name bigger 50 symbols");  
                 }
                 _name = value;
             }
         }
         /// <summary>
-        /// Содержание и исключение
+        /// Содержание 
         /// </summary>
-             public string NoteText { get; set; }
+             public string Text { get; set; }
 
         /// <summary>
         /// Категории
@@ -75,30 +76,27 @@ namespace NoteApp
         /// <summary>
         /// Дата создания
         /// </summary>
-        public DateTime DateofCreation { get; set; }
+        public DateTime TimeWhenCreated { get; set; }
         /// <summary>
         /// Время последнего изменения
         /// </summary>
-        public DateTime DateOfLastEdit { get; set; }
+        public DateTime TimeWhenChanged { get; set; }
 
         /// <summary>
         /// Конструктор значений заметки.
         /// </summary>
-        public Note(string name, string notetext, NoteCategory category)
+        public Note(string name, string text, NoteCategory category)
         {
             Name = name;
-            NoteText = notetext;
+            Text = text;
             Category = category;
-            DateofCreation = DateTime.Now;
-            DateOfLastEdit = DateTime.Now;
-
+            TimeWhenCreated = DateTime.Now;
+            TimeWhenChanged = DateTime.Now;
         }
-
-
-
-
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
-    
-
 }
 

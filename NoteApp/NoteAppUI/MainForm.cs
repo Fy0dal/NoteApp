@@ -36,11 +36,12 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Note note1 = new Note(textBox1.Text, textBox2.Text, (NoteCategory)Convert.ToInt32(textBox3.Text));
+            Note note1 = new Note(textBox1.Text, textBox2.Text,
+            (NoteCategory)Convert.ToInt32(textBox3.Text));
             
             notes.Notes.Add(note1);
-            label1.Text = note1.Name + " || " + note1.NoteText + " || " + note1.Category + " || " + note1.DateofCreation + " ||  " + note1.DateOfLastEdit;
-
+            label1.Text = note1.Name + " || " + note1.Text + " || " + note1.Category 
+             + " || " + note1.TimeWhenCreated + " ||  " + note1.TimeWhenChanged;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -71,7 +72,8 @@ namespace NoteAppUI
             notes1 = ProjectManager.LoadFromFile(@"D:\Reposit\json.txt");
             foreach (Note i in notes1.Notes)
             {
-                label2.Text = i.Name + " || " + i.NoteText + " || " + i.Category + " || " + i.DateofCreation + " || " + i.DateOfLastEdit;
+                label2.Text = i.Name + " || " + i.Text + " || " + i.Category 
+                + " || " + i.TimeWhenCreated + " || " + i.TimeWhenChanged;
             }
             
         }

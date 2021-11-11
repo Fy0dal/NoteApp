@@ -12,7 +12,6 @@ namespace NoteApp
     /// </summary>
     public class Project
     {
-
         /// <summary>
         /// Список заметок
         /// </summary>
@@ -25,6 +24,5 @@ namespace NoteApp
             get { return _notes; }
             set => _notes = value;
         }
-
     }
 }
