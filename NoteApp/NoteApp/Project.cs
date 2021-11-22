@@ -16,6 +16,7 @@ namespace NoteApp
         /// Список заметок
         /// </summary>
         private List<Note> _notes = new List<Note>();
+       
         /// <summary>
         /// Список заметок
         /// </summary>
