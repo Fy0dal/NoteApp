@@ -18,12 +18,12 @@ namespace NoteApp
         /// Константа, указывающая путь к файлу
         /// </summary>
         private static readonly string FolderPath = Environment.GetFolderPath
-            (Environment.SpecialFolder.ApplicationData) + "\\NoteApp\\";
+        (Environment.SpecialFolder.ApplicationData) + "\\NoteApp\\";
 
         /// <summary>
         /// Константа, указывающая имя файла
         /// </summary>
-        private static readonly string FileName = "json.txt";
+        private static readonly string FileName = "Json.txt";
 
         /// <summary>
         /// Метод сохранения данных в файл

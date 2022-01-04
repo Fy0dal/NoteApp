@@ -30,12 +30,12 @@ namespace NoteApp
         /// <summary>
         /// Время создания
         /// </summary>
-        private DateTime _TimeWhenCreated;
+        private DateTime _CreatedTime;
        
         /// <summary>
         /// Время изменения
         /// </summary>
-        private DateTime _TimeWhenChanged;
+        private DateTime _ModifiedTime;
 
         /// <summary>
         /// Название заметки
@@ -75,11 +75,11 @@ namespace NoteApp
         /// <summary>
         /// Дата создания
         /// </summary>
-        public DateTime TimeWhenCreated { get; set; }
+        public DateTime CreatedTime { get; set; }
         /// <summary>
         /// Время последнего изменения
         /// </summary>
-        public DateTime TimeWhenChanged { get; set; }
+        public DateTime ModifiedTime { get; set; }
 
         /// <summary>
         /// Конструктор значений заметки.
@@ -89,8 +89,8 @@ namespace NoteApp
             Name = name;
             Text = text;
             Category = category;
-            TimeWhenCreated = DateTime.Now;
-            TimeWhenChanged = DateTime.Now;
+            CreatedTime = DateTime.Now;
+            ModifiedTime = DateTime.Now;
         }
         public object Clone()
         {
