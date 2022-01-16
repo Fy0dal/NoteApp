@@ -10,32 +10,12 @@ namespace NoteApp
     /// <summary>
     /// Класс заметки.
     /// </summary>
-    public class Note
+    public class Note 
     {
         /// <summary>
         /// Название
         /// </summary>
         private string _name;
-       
-        /// <summary>
-        /// Категория
-        /// </summary>
-        private NoteCategory _category;
-       
-        /// <summary>
-        /// Текст
-        /// </summary>
-        private string _text;
-        
-        /// <summary>
-        /// Время создания
-        /// </summary>
-        private DateTime _CreatedTime;
-       
-        /// <summary>
-        /// Время изменения
-        /// </summary>
-        private DateTime _ModifiedTime;
 
         /// <summary>
         /// Название заметки
@@ -91,6 +71,10 @@ namespace NoteApp
             Category = category;
             CreatedTime = DateTime.Now;
             ModifiedTime = DateTime.Now;
+        }
+        public Note()
+        {
+
         }
         public object Clone()
         {

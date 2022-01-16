@@ -1,227 +1,287 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using NoteApp;
 
 namespace NoteAppUI
 {
     /// <summary>
-    /// Класс основной формы
+    /// Главное окно программы.
     /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
-        /// Поле, содержащее список заметок
+        /// Хранилище заметок.
         /// </summary>
-        public Project Project { get; set; }
+        private Project _project = new Project();
+        private List<Note> _viewedNotes = new List<Note>();
 
-        /// <summary>
-        /// Поле, которое содержит индекс заметки
-        /// </summary>
-        public int CurrentNoteIndex { get; set; }
-
-        /// <summary>
-        /// Конструктор класса
-        /// </summary>        
         public MainForm()
         {
             InitializeComponent();
-            Project = ProjectManager.LoadFromFile();
-            UpdateListBox();
+            CategoryComboBox.Items.AddRange(Enum.GetNames(typeof(NoteApp.NoteCategory)));
+            CategoryComboBox.Items.Add("All");
+            CategoryComboBox.SelectedIndex = CategoryComboBox.Items.Count - 1;
         }
 
         /// <summary>
-        /// Метод, который обновляет список заметок в листбоксе
+        /// Загрузка из файла.
         /// </summary>
-        private void UpdateListBox()
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            NotesListBox.Items.Clear();
-            for (int i = 0; i < Project.Notes.Count; i++)
+            _project = ProjectManager.LoadFromFile(ProjectManager.DefaultPath);
+            _viewedNotes = _project.Notes;
+            UpdateNotes();
+            LastSelectedNote();
+            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+        }
+
+        /// <summary>
+        /// Последняя выбранная заметка.
+        /// </summary>
+        private void LastSelectedNote()
+        {
+            try
             {
-                NotesListBox.Items.Add(Project.Notes[i].Name);
+                NoteListBox.SelectedIndex = _project.CurrentIndexNote;
             }
-        }
-
-        /// <summary>
-        /// Метод, для отображения информации заметки
-        /// </summary>
-        private void ShowNoteInfo()
-        {
-            var note = Project.Notes[CurrentNoteIndex];
-            TitleLabel.Text = note.Name;
-            notesTextBox.Text = note.Text;
-            CreatedDateTimePicker.Value = note.CreatedTime;
-            ModifiedDateTimePicker.Value = note.ModifiedTime;
-            CategoryLabel.Text = note.Category.ToString();
-        }
-
-        /// <summary>
-        /// Событие, для установки значения индекса заметки
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void NotesListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CurrentNoteIndex = NotesListBox.SelectedIndex;
-            if (CurrentNoteIndex == -1)
+            catch (Exception)
             {
+                ClearSelection();
                 return;
             }
-            ShowNoteInfo();
         }
 
         /// <summary>
-        /// Метод, для добавления заметки
+        /// Обновление списка заметок.
+        /// </summary>
+        private void UpdateNotes()
+        {
+            _viewedNotes = _project.Notes;
+            if (CategoryComboBox.SelectedIndex != CategoryComboBox.Items.Count - 1)
+            {
+                _viewedNotes = _project.SortByEditing(_viewedNotes, (NoteCategory)CategoryComboBox.SelectedIndex);
+            }
+            else
+            {
+                _viewedNotes = _project.SortByEditing(_viewedNotes);
+            }
+            NoteListBox.Items.Clear();
+            for (int i = 0; i < _viewedNotes.Count; i++)
+            {
+                NoteListBox.Items.Add(_viewedNotes[i].Name);
+            }
+        }
+
+        /// <summary>
+        /// Добавление новой заметки.
         /// </summary>
         private void AddNote()
         {
-            NoteForm form = new NoteForm();
-            if (form.ShowDialog() == DialogResult.OK)
+            NoteForm addNote = new NoteForm();
+            DialogResult dialogResult = addNote.ShowDialog();
+            if (dialogResult == DialogResult.OK)
             {
-                Project.Notes.Add(form.CurrentNote);
-                ProjectManager.SaveToFile(Project);
-                UpdateListBox();
-                NotesListBox.SelectedIndex = NotesListBox.Items.Count - 1;
+                _project.Notes.Add(addNote.Note);
+                _viewedNotes.Add(addNote.Note);
+                NoteListBox.Items.Add(addNote.Note.Name);
+                UpdateNotes();
+                if (NoteListBox.Items.Count != 0)
+                {
+                    NoteListBox.SelectedIndex = 0;
+                }
+                else
+                {
+                    ClearSelection();
+                }
+                ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             }
-        }
-        /// <summary>
-        /// Кнопка добавить в верхней панели
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void addNoteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddNote();
         }
 
         /// <summary>
-        /// Метод, для редактирования заметки
+        /// Редактирование заметки.
         /// </summary>
         private void EditNote()
         {
-            if (NotesListBox.SelectedIndex != -1)
+            var selectedIndex = NoteListBox.SelectedIndex;
+            if (selectedIndex != -1)
             {
-                NoteForm form = new NoteForm();
-                form.CurrentNote = Project.Notes[CurrentNoteIndex];
-
-                if (form.ShowDialog() == DialogResult.OK)
+                var selectedNote = _viewedNotes[selectedIndex];
+                var editNote = new NoteForm { Note = selectedNote };
+                DialogResult dialogResult = editNote.ShowDialog();
+                if (dialogResult == DialogResult.OK)
                 {
-                    Project.Notes[CurrentNoteIndex].Name = form.CurrentNote.Name;
-                    Project.Notes[CurrentNoteIndex].Text = form.CurrentNote.Text;
-                    Project.Notes[CurrentNoteIndex].Category = form.CurrentNote.Category;
-                    Project.Notes[CurrentNoteIndex].ModifiedTime = form.CurrentNote.ModifiedTime;
-                    ProjectManager.SaveToFile(Project);
-                    UpdateListBox();
-                    ShowNoteInfo();
-                    NotesListBox.SelectedIndex = CurrentNoteIndex;
+                    var noteSelectIndex = _project.Notes.IndexOf(selectedNote);
+                    var editedNote = editNote.Note;
+                    _viewedNotes.RemoveAt(selectedIndex);
+                    _project.Notes.RemoveAt(noteSelectIndex);
+                    _viewedNotes.Insert(selectedIndex, editedNote);
+                    _project.Notes.Insert(noteSelectIndex, editedNote);
+                    NoteListBox.Items.Insert(selectedIndex, editedNote.Name);
                 }
+                _project.CurrentIndexNote = NoteListBox.SelectedIndex;
+                UpdateNotes();
+                if (NoteListBox.Items.Count != 0)
+                {
+                    NoteListBox.SelectedIndex = 0;
+                }
+                else
+                {
+                    ClearSelection();
+                }
+                ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             }
-            else
-            {
-                MessageBox.Show("Не выбрана заметка!");
-            }
         }
 
         /// <summary>
-        /// Кнопка изменить в верхней панели
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void editNoteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            EditNote();
-        }
-
-        /// <summary>
-        /// Открытие формы About
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AboutForm form = new AboutForm();
-            form.Show();
-        }
-
-        /// <summary>
-        /// Метод для удаления заметки
+        /// Удаление заметки.
         /// </summary>
         private void RemoveNote()
         {
-            if (NotesListBox.SelectedIndex != -1)
+            var selectedIndex = NoteListBox.SelectedIndex;
+            if(selectedIndex == -1)
             {
-
-                DialogResult result = MessageBox.Show("Do you want to remove this note: " + Project.Notes[CurrentNoteIndex].Name + "", "Remove Note", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                if (result == DialogResult.OK)
-                {
-                    Project.Notes.Remove(Project.Notes[CurrentNoteIndex]);
-                    ProjectManager.SaveToFile(Project);
-                    UpdateListBox();
-                    NotesListBox.SelectedIndex = 0;
-                }
-
-                if (result == DialogResult.Cancel)
-                {
-                    DialogResult = DialogResult.Cancel;
-                }
+                MessageBox.Show(@"Note not selected!", @"Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Не выбрана заметка!");
+                var selectedNote = _viewedNotes[selectedIndex];
+                DialogResult dialogResult = MessageBox.Show("Do you really want to remove this note: " 
+                + _project.Notes[NoteListBox.SelectedIndex].Name + "?",
+                "Are you sure", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.OK)
+                {
+                    var notesSelectedIndex = _project.Notes.IndexOf(selectedNote);
+                    _project.Notes.RemoveAt(notesSelectedIndex);
+                    _viewedNotes.RemoveAt(selectedIndex);
+                    NoteListBox.Items.RemoveAt(selectedIndex);
+                }
+                UpdateNotes();
+                if (NoteListBox.Items.Count != 0)
+                {
+                    NoteListBox.SelectedIndex = 0;
+                }
+                else
+                {
+                    ClearSelection();
+                }
+                ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             }
         }
-        /// <summary>
-        /// Кнопка изменить в верхней панели
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void removeNoteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RemoveNote();
-        }
 
         /// <summary>
-        /// Закрытие формы
+        /// Добавление новой заметки по нажатию на add.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            ProjectManager.SaveToFile(Project);
-        }
-
-        /// <summary>
-        /// Закрытие формы, через кнопку на тулстрипе
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ProjectManager.SaveToFile(Project);
-            Application.Exit();
-        }
-
-        private void AddButton_Click(object sender, EventArgs e)
+        private void AddNoteButton_Click(object sender, EventArgs e)
         {
             AddNote();
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Редактирование заметки по нажатию на edit.
+        /// </summary>
+        private void EditNoteButton_Click(object sender, EventArgs e)
         {
             EditNote();
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Удаление заметки по нажатию нa remove.
+        /// </summary>
+        private void RemoveNoteButton_Click(object sender, EventArgs e)
         {
             RemoveNote();
+        }
+
+        /// <summary>
+        /// Вывод информации о выбранной заметки. 
+        /// </summary>
+        private void NotesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedIndex = NoteListBox.SelectedIndex;
+            if (selectedIndex == -1)
+            {
+                ClearSelection();
+                return;
+            }
+            var selectedNote = _viewedNotes[selectedIndex];
+            _project.CurrentIndexNote = selectedIndex;
+            TitleLabel.Text = selectedNote.Name; 
+            Categorylabel.Text = selectedNote.Category.ToString();
+            CreatedDateTimePicker.Value = selectedNote.CreatedTime;
+            ModifiefDateTimePicker.Value = selectedNote.ModifiedTime;
+            NoteTextTextBox.Text = selectedNote.Text;
+        }
+
+        /// <summary>
+        /// Очищение полей, после удаления выбранной заметки.
+        /// </summary>
+        private void ClearSelection()
+        {
+            TitleLabel.Text = "";
+            Categorylabel.Text = "";
+            CreatedDateTimePicker.Value = DateTime.Now;
+            ModifiefDateTimePicker.Value = DateTime.Now;
+            NoteTextTextBox.Text = "";
+        }
+
+        /// <summary>
+        /// Сохранение в файл при закрытии главного окна.
+        /// </summary>
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+        }
+
+        /// <summary>
+        /// Обновление списка заметок.
+        /// </summary>
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateNotes();
+        }
+       
+        /// <summary>
+        /// Добавление новой заметки через меню.
+        /// </summary>
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNote();
+        }
+        
+        /// <summary>
+        /// Редактирование заметки через меню.
+        /// </summary>
+        private void editToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            EditNote();
+        }
+        
+        /// <summary>
+        /// Удаление заметки через меню.
+        /// </summary>
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveNote();
+        }
+       
+        /// <summary>
+        /// Вызов окна About.
+        /// </summary>
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
+        }
+       
+        /// <summary>
+        /// Закрытие главного окна через меню.
+        /// </summary>
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

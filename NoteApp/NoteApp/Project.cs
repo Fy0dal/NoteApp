@@ -15,15 +15,21 @@ namespace NoteApp
         /// <summary>
         /// Список заметок
         /// </summary>
-        private List<Note> _notes = new List<Note>();
-       
+        public List<Note> Notes = new List<Note>();
+
         /// <summary>
-        /// Список заметок
+        /// Хранение заметки
         /// </summary>
-        public List<Note> Notes
+        public int CurrentIndexNote { get; set; }
+
+        public List<Note> SortByEditing(List<Note> _notesToSort)
         {
-            get { return _notes; }
-            set => _notes = value;
+            return _notesToSort = _notesToSort.OrderByDescending(item => item.ModifiedTime).ToList();
+        }
+        public List<Note> SortByEditing(List<Note> _notesToSort, NoteCategory category)
+        {
+            return _notesToSort = _notesToSort.Where(item => item.Category == category).OrderByDescending(item => item.ModifiedTime).ToList();
         }
     }
 }
+

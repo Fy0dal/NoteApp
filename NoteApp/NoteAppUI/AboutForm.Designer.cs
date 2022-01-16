@@ -1,5 +1,4 @@
-﻿
-namespace NoteAppUI
+﻿namespace NoteAppUI
 {
     partial class AboutForm
     {
@@ -33,113 +32,112 @@ namespace NoteAppUI
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.EmailLinkLabel = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.GitHubLinkLabel = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(18, 19);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 25);
+            this.label1.Size = new System.Drawing.Size(134, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "NoteApp";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 48);
+            this.label2.Location = new System.Drawing.Point(13, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "v.  1.0.0";
+            this.label2.Text = "v. 1.0.0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 85);
+            this.label3.Location = new System.Drawing.Point(12, 91);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 13);
+            this.label3.Size = new System.Drawing.Size(112, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Author: Gudkov Fyodor";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // EmailLinkLabel
+            // 
+            this.EmailLinkLabel.AutoSize = true;
+            this.EmailLinkLabel.Location = new System.Drawing.Point(118, 126);
+            this.EmailLinkLabel.Name = "EmailLinkLabel";
+            this.EmailLinkLabel.Size = new System.Drawing.Size(114, 13);
+            this.EmailLinkLabel.TabIndex = 3;
+            this.EmailLinkLabel.TabStop = true;
+            this.EmailLinkLabel.Text = "gudkov101001@gmail.com";
+            this.EmailLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.EmailLinkLabel_LinkClicked);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 233);
+            this.label4.Location = new System.Drawing.Point(12, 126);
+            this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "2022  Gudkov Fyodor";
+            this.label4.Size = new System.Drawing.Size(100, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "e-mail for feedback:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 112);
+            this.label5.Location = new System.Drawing.Point(12, 145);
+            this.label5.Margin = new System.Windows.Forms.Padding(3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "email for feedback :";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "GitHub:";
             // 
-            // linkLabel1
+            // GitHubLinkLabel
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(129, 112);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(118, 13);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "gudkov101001@gmail.com";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(75, 139);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(152, 13);
-            this.linkLabel2.TabIndex = 7;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "github.com/Fy0dal/NoteApp";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.GitHubLinkLabel.AutoSize = true;
+            this.GitHubLinkLabel.Location = new System.Drawing.Point(61, 145);
+            this.GitHubLinkLabel.Name = "GitHubLinkLabel";
+            this.GitHubLinkLabel.Size = new System.Drawing.Size(116, 13);
+            this.GitHubLinkLabel.TabIndex = 6;
+            this.GitHubLinkLabel.TabStop = true;
+            this.GitHubLinkLabel.Text = "Fy0dal/NoteAPP";
+            this.GitHubLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GitHubLinkLabel_LinkClicked);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 139);
+            this.label6.Location = new System.Drawing.Point(12, 279);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "GitHub :";
+            this.label6.Size = new System.Drawing.Size(117, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "2022 Gudkov Fyodor © ";
             // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(334, 262);
-            this.Controls.Add(this.linkLabel2);
+            this.ClientSize = new System.Drawing.Size(344, 301);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.GitHubLinkLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.EmailLinkLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(360, 340);
+            this.MinimumSize = new System.Drawing.Size(360, 340);
             this.Name = "AboutForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About";
+            this.Load += new System.EventHandler(this.AboutForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,10 +148,10 @@ namespace NoteAppUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.LinkLabel EmailLinkLabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel GitHubLinkLabel;
         private System.Windows.Forms.Label label6;
     }
 }

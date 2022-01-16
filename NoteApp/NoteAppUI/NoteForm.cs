@@ -1,102 +1,88 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using NoteApp;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace NoteAppUI
 {
-    /// <summary>
-    /// Класс формы, для добавления/изменения заметки
-    /// </summary>
     public partial class NoteForm : Form
-        {
-        /// <summary>
-        /// Поле  текущей заметки
-        /// </summary>
-        public Note CurrentNote { get; set; } 
+    {
+        private Note _note = new Note();
 
         /// <summary>
-        /// Констуктор формы
+        /// Временное хранилище данных
         /// </summary>
+        public Note Note
+        {
+            get => _note;
+            set
+            {
+                _note = value;
+                TitleTextBox.Text = value.Name;
+                NoteTextTextBox.Text = value.Text;
+                CategoryComboBox.Text = value.Category.ToString();
+                CreatedDateTimePicker.Value = value.CreatedTime;
+                ModifiedDateTimePicker.Value = value.ModifiedTime;
+            }
+        }
+
         public NoteForm()
         {
             InitializeComponent();
-            var categories = Enum.GetValues(typeof(NoteCategory)).Cast<object>().ToArray();
-            CategoryComboBox.Items.AddRange(categories);
+            CategoryComboBox.DataSource = Enum.GetValues(typeof(NoteCategory));
         }
 
         /// <summary>
-        /// Нажатие кнопки "Ок"
+        /// OK
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void okButton_Click(object sender, EventArgs e)
-        {          
+        private void OkButton_Click(object sender, EventArgs e)
+        {
             try
             {
-                if (CategoryComboBox.SelectedIndex != -1)
-                {
-                    var currentCategory = (NoteCategory)CategoryComboBox.SelectedIndex;
-                    CurrentNote = new Note(nameTextBox.Text, noteTextTextBox.Text, currentCategory);
-                    DialogResult = DialogResult.OK;
-                }
-                else
-                {
-                    MessageBox.Show("Не выбрана категория заметки!");
-                }
+                NewNote();
+                DialogResult = DialogResult.OK;
             }
-            catch(ArgumentException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Ошибка!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-        
-        /// <summary>
-        /// Метод, для заполнения элементов информацией о текущей заметке
-        /// </summary>
-        private void ShowNoteInfo()
-        {
-            nameTextBox.Text = CurrentNote.Name;
-            noteTextTextBox.Text = CurrentNote.Text;
-            CategoryComboBox.Text = CurrentNote.Category.ToString();
-            CreatedDateTimePicker.Value = CurrentNote.CreatedTime;
-            ModifiedDateTimePicker.Value = CurrentNote.ModifiedTime;
         }
 
         /// <summary>
-        /// Метод загрузки формы.
+        /// Cancel
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Add_EditForm_Load(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
-            if (CurrentNote != null)
+            Close();
+        }
+
+        /// <summary>
+        /// Создание новой заметки
+        /// </summary>
+        private void NewNote()
+        {
+                string text = TitleTextBox.Text;
+                Note.Name = text;
+                Note.Text = NoteTextTextBox.Text;
+                Note.CreatedTime = CreatedDateTimePicker.Value;
+                Note.ModifiedTime = ModifiedDateTimePicker.Value;
+                Note.Category = (NoteCategory)CategoryComboBox.SelectedItem;
+        }
+
+        /// <summary>
+        /// Окраска полей, если введено более 50 символов
+        /// </summary>
+        private void TitleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (TitleTextBox.Text.Length > 50)
             {
-                ShowNoteInfo();
+                TitleTextBox.BackColor = Color.LightCoral;
+            }
+            else
+            {
+                TitleTextBox.BackColor = Color.White;
             }
         }
-
-        /// <summary>
-        /// Кнопка "Отмена"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        /// <summary>
-        /// Метод, для изменения цвета titleTextBox, если длина текста больше 50
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-       
     }
 }

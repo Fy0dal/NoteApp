@@ -1,5 +1,4 @@
-﻿
-namespace NoteAppUI
+﻿namespace NoteAppUI
 {
     partial class MainForm
     {
@@ -30,375 +29,429 @@ namespace NoteAppUI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.TitleLabel = new System.Windows.Forms.Label();
+            this.Categorylabel = new System.Windows.Forms.Label();
+            this.ModifiefDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.CreatedDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.NoteTextTextBox = new System.Windows.Forms.TextBox();
+            this.NoteListBox = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.DeleteButton = new System.Windows.Forms.Button();
-            this.EditButton = new System.Windows.Forms.Button();
-            this.AddButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.NotesListBox = new System.Windows.Forms.ListBox();
-            this.TitleLabel = new System.Windows.Forms.Label();
-            this.ModifiedDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.CreatedDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.CategoryLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.notesTextBox = new System.Windows.Forms.TextBox();
+            this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoveNoteButton = new System.Windows.Forms.Button();
+            this.EditNoteButton = new System.Windows.Forms.Button();
+            this.AddNoteButton = new System.Windows.Forms.Button();
+            this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // CategoryComboBox
+            // 
+            this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Location = new System.Drawing.Point(100, 29);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(121, 21);
+            this.CategoryComboBox.TabIndex = 0;
+            this.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryComboBox_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Show Category:";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.TitleLabel);
+            this.panel1.Controls.Add(this.Categorylabel);
+            this.panel1.Controls.Add(this.ModifiefDateTimePicker);
+            this.panel1.Controls.Add(this.CreatedDateTimePicker);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.NoteTextTextBox);
+            this.panel1.Location = new System.Drawing.Point(277, 56);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(427, 423);
+            this.panel1.TabIndex = 2;
+            // 
+            // TitleLabel
+            // 
+            this.TitleLabel.AutoSize = true;
+            this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.Location = new System.Drawing.Point(4, 8);
+            this.TitleLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(39, 16);
+            this.TitleLabel.TabIndex = 8;
+            this.TitleLabel.Text = "Title";
+            // 
+            // Categorylabel
+            // 
+            this.Categorylabel.AutoSize = true;
+            this.Categorylabel.Location = new System.Drawing.Point(62, 30);
+            this.Categorylabel.Name = "Categorylabel";
+            this.Categorylabel.Size = new System.Drawing.Size(33, 13);
+            this.Categorylabel.TabIndex = 7;
+            this.Categorylabel.Text = "Label";
+            // 
+            // ModifiefDateTimePicker
+            // 
+            this.ModifiefDateTimePicker.Enabled = false;
+            this.ModifiefDateTimePicker.Location = new System.Drawing.Point(243, 49);
+            this.ModifiefDateTimePicker.Name = "ModifiefDateTimePicker";
+            this.ModifiefDateTimePicker.Size = new System.Drawing.Size(120, 20);
+            this.ModifiefDateTimePicker.TabIndex = 5;
+            // 
+            // CreatedDateTimePicker
+            // 
+            this.CreatedDateTimePicker.Enabled = false;
+            this.CreatedDateTimePicker.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.CreatedDateTimePicker.Location = new System.Drawing.Point(57, 49);
+            this.CreatedDateTimePicker.Name = "CreatedDateTimePicker";
+            this.CreatedDateTimePicker.Size = new System.Drawing.Size(120, 20);
+            this.CreatedDateTimePicker.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(187, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Modified:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(4, 52);
+            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Created:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 30);
+            this.label2.Margin = new System.Windows.Forms.Padding(3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Category:";
+            // 
+            // NoteTextTextBox
+            // 
+            this.NoteTextTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NoteTextTextBox.Location = new System.Drawing.Point(3, 75);
+            this.NoteTextTextBox.Multiline = true;
+            this.NoteTextTextBox.Name = "NoteTextTextBox";
+            this.NoteTextTextBox.ReadOnly = true;
+            this.NoteTextTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.NoteTextTextBox.Size = new System.Drawing.Size(424, 348);
+            this.NoteTextTextBox.TabIndex = 0;
+            // 
+            // NoteListBox
+            // 
+            this.NoteListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.NoteListBox.FormattingEnabled = true;
+            this.NoteListBox.Location = new System.Drawing.Point(12, 56);
+            this.NoteListBox.Name = "NoteListBox";
+            this.NoteListBox.Size = new System.Drawing.Size(259, 368);
+            this.NoteListBox.TabIndex = 3;
+            this.NoteListBox.SelectedIndexChanged += new System.EventHandler(this.NotesListBox_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 0);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.fileToolStripMenuItem1,
+            this.editToolStripMenuItem1,
+            this.helpToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Margin = new System.Windows.Forms.Padding(3);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(812, 27);
-            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Size = new System.Drawing.Size(704, 24);
+            this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
+            this.ExitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(41, 23);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // exitToolStripMenuItem
+            // ExitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            this.ExitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.ExitToolStripMenuItem.ShowShortcutKeys = false;
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.ExitToolStripMenuItem.Text = "Exit";
+          
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNoteToolStripMenuItem,
-            this.editNoteToolStripMenuItem,
+            this.AddNoteToolStripMenuItem,
+            this.EditNoteToolStripMenuItem,
             this.removeNoteToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
-            // addNoteToolStripMenuItem
+            // AddNoteToolStripMenuItem
             // 
-            this.addNoteToolStripMenuItem.Name = "addNoteToolStripMenuItem";
-            this.addNoteToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
-            this.addNoteToolStripMenuItem.Text = "Add Note";
-            this.addNoteToolStripMenuItem.Click += new System.EventHandler(this.addNoteToolStripMenuItem_Click);
+            this.AddNoteToolStripMenuItem.Name = "AddNoteToolStripMenuItem";
+            this.AddNoteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Insert;
+            this.AddNoteToolStripMenuItem.ShowShortcutKeys = false;
+            this.AddNoteToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.AddNoteToolStripMenuItem.Text = "Add Note";
+       
             // 
-            // editNoteToolStripMenuItem
+            // EditNoteToolStripMenuItem
             // 
-            this.editNoteToolStripMenuItem.Name = "editNoteToolStripMenuItem";
-            this.editNoteToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
-            this.editNoteToolStripMenuItem.Text = "Edit Note";
-            this.editNoteToolStripMenuItem.Click += new System.EventHandler(this.editNoteToolStripMenuItem_Click);
+            this.EditNoteToolStripMenuItem.Name = "EditNoteToolStripMenuItem";
+            this.EditNoteToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.EditNoteToolStripMenuItem.Text = "Edit Note";
+           
             // 
             // removeNoteToolStripMenuItem
             // 
             this.removeNoteToolStripMenuItem.Name = "removeNoteToolStripMenuItem";
-            this.removeNoteToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
+            this.removeNoteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.removeNoteToolStripMenuItem.ShowShortcutKeys = false;
+            this.removeNoteToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.removeNoteToolStripMenuItem.Text = "Remove Note";
-            this.removeNoteToolStripMenuItem.Click += new System.EventHandler(this.removeNoteToolStripMenuItem_Click);
+           
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
+            this.AboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(49, 23);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // aboutToolStripMenuItem
+            // AboutToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 24);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
+            this.AboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.AboutToolStripMenuItem.ShowShortcutKeys = false;
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.AboutToolStripMenuItem.Text = "About";
+            
             // 
-            // splitContainer1
+            // RemoveNoteButton
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 27);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
-            this.splitContainer1.Name = "splitContainer1";
+            this.RemoveNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RemoveNoteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RemoveNoteButton.BackgroundImage")));
+            this.RemoveNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RemoveNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveNoteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.RemoveNoteButton.Location = new System.Drawing.Point(88, 437);
+            this.RemoveNoteButton.Name = "RemoveNoteButton";
+            this.RemoveNoteButton.Size = new System.Drawing.Size(32, 32);
+            this.RemoveNoteButton.TabIndex = 7;
+            this.RemoveNoteButton.UseVisualStyleBackColor = true;
+            this.RemoveNoteButton.Click += new System.EventHandler(this.RemoveNoteButton_Click);
             // 
-            // splitContainer1.Panel1
+            // EditNoteButton
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.DeleteButton);
-            this.splitContainer1.Panel1.Controls.Add(this.EditButton);
-            this.splitContainer1.Panel1.Controls.Add(this.AddButton);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.NotesListBox);
+            this.EditNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.EditNoteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditNoteButton.BackgroundImage")));
+            this.EditNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.EditNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditNoteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.EditNoteButton.Location = new System.Drawing.Point(50, 437);
+            this.EditNoteButton.Name = "EditNoteButton";
+            this.EditNoteButton.Size = new System.Drawing.Size(32, 32);
+            this.EditNoteButton.TabIndex = 6;
+            this.EditNoteButton.UseVisualStyleBackColor = true;
+            this.EditNoteButton.Click += new System.EventHandler(this.EditNoteButton_Click);
             // 
-            // splitContainer1.Panel2
+            // AddNoteButton
             // 
-            this.splitContainer1.Panel2.AccessibleRole = System.Windows.Forms.AccessibleRole.HotkeyField;
-            this.splitContainer1.Panel2.Controls.Add(this.TitleLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.ModifiedDateTimePicker);
-            this.splitContainer1.Panel2.Controls.Add(this.CreatedDateTimePicker);
-            this.splitContainer1.Panel2.Controls.Add(this.label5);
-            this.splitContainer1.Panel2.Controls.Add(this.label4);
-            this.splitContainer1.Panel2.Controls.Add(this.CategoryLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Panel2.Controls.Add(this.notesTextBox);
-            this.splitContainer1.Size = new System.Drawing.Size(812, 504);
-            this.splitContainer1.SplitterDistance = 265;
-            this.splitContainer1.SplitterWidth = 3;
-            this.splitContainer1.TabIndex = 5;
+            this.AddNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddNoteButton.AutoSize = true;
+            this.AddNoteButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.AddNoteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddNoteButton.BackgroundImage")));
+            this.AddNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AddNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddNoteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.AddNoteButton.Location = new System.Drawing.Point(12, 437);
+            this.AddNoteButton.Name = "AddNoteButton";
+            this.AddNoteButton.Size = new System.Drawing.Size(32, 32);
+            this.AddNoteButton.TabIndex = 8;
+            this.AddNoteButton.UseVisualStyleBackColor = false;
+            this.AddNoteButton.Click += new System.EventHandler(this.AddNoteButton_Click);
             // 
-            // DeleteButton
+            // fileToolStripMenuItem1
             // 
-            this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DeleteButton.BackgroundImage")));
-            this.DeleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.DeleteButton.FlatAppearance.BorderSize = 0;
-            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteButton.Location = new System.Drawing.Point(78, 468);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(34, 34);
-            this.DeleteButton.TabIndex = 5;
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem1});
+            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem1.Text = "File";
             // 
-            // EditButton
+            // exitToolStripMenuItem1
             // 
-            this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.EditButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditButton.BackgroundImage")));
-            this.EditButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.EditButton.FlatAppearance.BorderSize = 0;
-            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditButton.Location = new System.Drawing.Point(40, 468);
-            this.EditButton.Margin = new System.Windows.Forms.Padding(2);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(34, 34);
-            this.EditButton.TabIndex = 4;
-            this.EditButton.UseVisualStyleBackColor = true;
-            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
-            // AddButton
+            // editToolStripMenuItem1
             // 
-            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddButton.BackgroundImage")));
-            this.AddButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AddButton.FlatAppearance.BorderSize = 0;
-            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddButton.Location = new System.Drawing.Point(2, 468);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(2);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(34, 34);
-            this.AddButton.TabIndex = 3;
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.editToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.editToolStripMenuItem2,
+            this.removeToolStripMenuItem});
+            this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem1.Text = "Edit";
             // 
-            // label1
+            // addToolStripMenuItem
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(-1, 8);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Show Category:";
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
-            // comboBox1
+            // editToolStripMenuItem2
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(110, 5);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(153, 25);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.Text = "All";
+            this.editToolStripMenuItem2.Name = "editToolStripMenuItem2";
+            this.editToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem2.Text = "Edit";
+            this.editToolStripMenuItem2.Click += new System.EventHandler(this.editToolStripMenuItem2_Click);
             // 
-            // NotesListBox
+            // removeToolStripMenuItem
             // 
-            this.NotesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NotesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NotesListBox.FormattingEnabled = true;
-            this.NotesListBox.IntegralHeight = false;
-            this.NotesListBox.ItemHeight = 17;
-            this.NotesListBox.Location = new System.Drawing.Point(2, 34);
-            this.NotesListBox.Margin = new System.Windows.Forms.Padding(2);
-            this.NotesListBox.Name = "NotesListBox";
-            this.NotesListBox.Size = new System.Drawing.Size(261, 430);
-            this.NotesListBox.TabIndex = 0;
-            this.NotesListBox.SelectedIndexChanged += new System.EventHandler(this.NotesListBox_SelectedIndexChanged);
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
-            // TitleLabel
+            // helpToolStripMenuItem1
             // 
-            this.TitleLabel.AutoSize = true;
-            this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TitleLabel.Location = new System.Drawing.Point(1, 11);
-            this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(71, 31);
-            this.TitleLabel.TabIndex = 16;
-            this.TitleLabel.Text = "Title";
+            this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem1});
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem1.Text = "Help";
             // 
-            // ModifiedDateTimePicker
+            // aboutToolStripMenuItem1
             // 
-            this.ModifiedDateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ModifiedDateTimePicker.Enabled = false;
-            this.ModifiedDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.ModifiedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ModifiedDateTimePicker.Location = new System.Drawing.Point(266, 81);
-            this.ModifiedDateTimePicker.Name = "ModifiedDateTimePicker";
-            this.ModifiedDateTimePicker.Size = new System.Drawing.Size(103, 23);
-            this.ModifiedDateTimePicker.TabIndex = 15;
-            // 
-            // CreatedDateTimePicker
-            // 
-            this.CreatedDateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CreatedDateTimePicker.Enabled = false;
-            this.CreatedDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.CreatedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.CreatedDateTimePicker.Location = new System.Drawing.Point(70, 81);
-            this.CreatedDateTimePicker.Name = "CreatedDateTimePicker";
-            this.CreatedDateTimePicker.Size = new System.Drawing.Size(103, 23);
-            this.CreatedDateTimePicker.TabIndex = 14;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(196, 83);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 17);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Modified:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(3, 83);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Created:";
-            // 
-            // CategoryLabel
-            // 
-            this.CategoryLabel.AutoSize = true;
-            this.CategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CategoryLabel.Location = new System.Drawing.Point(70, 51);
-            this.CategoryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.CategoryLabel.Name = "CategoryLabel";
-            this.CategoryLabel.Size = new System.Drawing.Size(97, 17);
-            this.CategoryLabel.TabIndex = 7;
-            this.CategoryLabel.Text = "categoryShow";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(3, 51);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Category:";
-            // 
-            // notesTextBox
-            // 
-            this.notesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.notesTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.notesTextBox.Location = new System.Drawing.Point(6, 109);
-            this.notesTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.notesTextBox.Multiline = true;
-            this.notesTextBox.Name = "notesTextBox";
-            this.notesTextBox.ReadOnly = true;
-            this.notesTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.notesTextBox.Size = new System.Drawing.Size(540, 394);
-            this.notesTextBox.TabIndex = 0;
+            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem1.Text = "About";
+            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 531);
-            this.Controls.Add(this.splitContainer1);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(704, 481);
+            this.Controls.Add(this.AddNoteButton);
+            this.Controls.Add(this.RemoveNoteButton);
+            this.Controls.Add(this.EditNoteButton);
+            this.Controls.Add(this.NoteListBox);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CategoryComboBox);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(720, 520);
             this.Name = "MainForm";
             this.Text = "NoteApp";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox ColorComboBox;
+        private System.Windows.Forms.CheckBox VisibilityCheckBox;
+        private System.Windows.Forms.TextBox NumberTextBox;
+        private System.Windows.Forms.Label LabelTextBox;
+        private System.Windows.Forms.Label LabelComboBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox NoteTextTextBox;
+        private System.Windows.Forms.DateTimePicker ModifiefDateTimePicker;
+        private System.Windows.Forms.DateTimePicker CreatedDateTimePicker;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox NoteListBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNoteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editNoteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddNoteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditNoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeNoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ListBox NotesListBox;
-        private System.Windows.Forms.TextBox notesTextBox;
-        private System.Windows.Forms.Button DeleteButton;
-        private System.Windows.Forms.Button EditButton;
-        private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label CategoryLabel;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.DateTimePicker ModifiedDateTimePicker;
-        private System.Windows.Forms.DateTimePicker CreatedDateTimePicker;
+        private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
+        private System.Windows.Forms.Button RemoveNoteButton;
+        private System.Windows.Forms.Button EditNoteButton;
+        private System.Windows.Forms.Button AddNoteButton;
+        private System.Windows.Forms.Label Categorylabel;
         private System.Windows.Forms.Label TitleLabel;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ComboBox CategoryComboBox;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
     }
 }
 

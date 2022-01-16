@@ -9,75 +9,58 @@ using Newtonsoft.Json;
 namespace NoteApp
 {
     /// <summary>
-    /// Класс "Менеджер Проекта", отвечающий за загрузку 
-    /// и выгрузку данных из файла
+    /// Класс менеджера проекта
     /// </summary>
     public static class ProjectManager
     {
         /// <summary>
-        /// Константа, указывающая путь к файлу
+        /// Путь к файлу.
         /// </summary>
-        private static readonly string FolderPath = Environment.GetFolderPath
-        (Environment.SpecialFolder.ApplicationData) + "\\NoteApp\\";
+        private static string _defaultPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\NoteApp\Note.notes";
 
         /// <summary>
-        /// Константа, указывающая имя файла
+        /// Свойство для пути к файлу.
         /// </summary>
-        private static readonly string FileName = "Json.txt";
-
-        /// <summary>
-        /// Метод сохранения данных в файл
-        /// </summary>
-        /// <param name="notes"></param>
-        public static void SaveToFile(Project notes)
+        public static string DefaultPath
         {
-            if (!Directory.Exists(FolderPath))
+            get => _defaultPath;
+        }
+
+        /// <summary>
+        /// Метод сериализации данных.
+        /// </summary>
+        /// <param name="project">Данные для сериализации.</param>
+        /// <param name="filepath">Путь до файла</param>
+        public static void SaveToFile(Project project, string filePath)
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+            var serializer = new JsonSerializer();
+            using (var sw = new StreamWriter(filePath))
+            using (var writer = new JsonTextWriter(sw))
             {
-                Directory.CreateDirectory(FolderPath);
-            }
-            if (!File.Exists(FileName))
-            {
-                File.Create(FileName);
-            }
-            JsonSerializer serializer = new JsonSerializer();
-            //Открываем поток для записи в файл с указанием пути
-            using (StreamWriter sw = new StreamWriter(FolderPath + FileName))
-            using (JsonWriter writer = new JsonTextWriter(sw))
-            {
-                //Вызываем сериализацию и передаем объект, который хотим сериализовать
-                serializer.Serialize(writer, notes);
+                //Вызываем сериализацию и передаем объект, который хотим сериализовать.
+                serializer.Serialize(writer, project);
             }
         }
 
         /// <summary>
-        /// Метод загрузки данных из файла
+        /// Метод десериализации данных.
         /// </summary>
-        /// <returns></returns>
-        public static Project LoadFromFile()
+        public static Project LoadFromFile(string filepath)
         {
-            if (!Directory.Exists(FolderPath))
-            {
-                Directory.CreateDirectory(FolderPath);
-            }
-            if (!File.Exists(FileName))
-            {
-                return new Project();
-            }
+            Project project;
+            JsonSerializer serializer = new JsonSerializer();
             try
             {
-                JsonSerializer serializer = new JsonSerializer();
-                //Открываем поток для чтения из файла с указанием пути
-                using (StreamReader sr = new StreamReader(FolderPath + FileName))
+                using (StreamReader sr = new StreamReader(filepath))
                 using (JsonReader reader = new JsonTextReader(sr))
-                {
-                    //Вызываем десериализацию и явно преобразуем результат в целевой тип данных
-                    return (Project)serializer.Deserialize<Project>(reader);
-                }
+                    project = serializer.Deserialize<Project>(reader);
             }
             catch
             {
                 return new Project();
             }
+            return project;
         }
     }
 }
