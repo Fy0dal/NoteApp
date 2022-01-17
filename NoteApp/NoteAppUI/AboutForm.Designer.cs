@@ -64,7 +64,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 91);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 13);
+            this.label3.Size = new System.Drawing.Size(117, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Author: Gudkov Fyodor";
             // 
@@ -73,7 +73,7 @@
             this.EmailLinkLabel.AutoSize = true;
             this.EmailLinkLabel.Location = new System.Drawing.Point(118, 126);
             this.EmailLinkLabel.Name = "EmailLinkLabel";
-            this.EmailLinkLabel.Size = new System.Drawing.Size(114, 13);
+            this.EmailLinkLabel.Size = new System.Drawing.Size(137, 13);
             this.EmailLinkLabel.TabIndex = 3;
             this.EmailLinkLabel.TabStop = true;
             this.EmailLinkLabel.Text = "gudkov101001@gmail.com";
@@ -104,7 +104,7 @@
             this.GitHubLinkLabel.AutoSize = true;
             this.GitHubLinkLabel.Location = new System.Drawing.Point(61, 145);
             this.GitHubLinkLabel.Name = "GitHubLinkLabel";
-            this.GitHubLinkLabel.Size = new System.Drawing.Size(116, 13);
+            this.GitHubLinkLabel.Size = new System.Drawing.Size(87, 13);
             this.GitHubLinkLabel.TabIndex = 6;
             this.GitHubLinkLabel.TabStop = true;
             this.GitHubLinkLabel.Text = "Fy0dal/NoteAPP";
@@ -115,7 +115,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 279);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(117, 13);
+            this.label6.Size = new System.Drawing.Size(122, 13);
             this.label6.TabIndex = 7;
             this.label6.Text = "2022 Gudkov Fyodor © ";
             // 

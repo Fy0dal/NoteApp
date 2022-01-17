@@ -44,7 +44,7 @@ namespace NoteAppUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Ошибка!",
+                MessageBox.Show(ex.Message, "ERROR!",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -84,5 +84,7 @@ namespace NoteAppUI
                 TitleTextBox.BackColor = Color.White;
             }
         }
+
+     
     }
 }

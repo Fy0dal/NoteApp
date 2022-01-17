@@ -28,7 +28,8 @@ namespace NoteApp
         }
         public List<Note> SortByEditing(List<Note> _notesToSort, NoteCategory category)
         {
-            return _notesToSort = _notesToSort.Where(item => item.Category == category).OrderByDescending(item => item.ModifiedTime).ToList();
+            return _notesToSort = _notesToSort.Where(item => item.Category == category)
+            .OrderByDescending(item => item.ModifiedTime).ToList();
         }
     }
 }

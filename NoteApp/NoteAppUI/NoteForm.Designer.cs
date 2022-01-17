@@ -124,13 +124,13 @@
             this.NoteTextTextBox.Multiline = true;
             this.NoteTextTextBox.Name = "NoteTextTextBox";
             this.NoteTextTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.NoteTextTextBox.Size = new System.Drawing.Size(512, 281);
+            this.NoteTextTextBox.Size = new System.Drawing.Size(512, 309);
             this.NoteTextTextBox.TabIndex = 8;
             // 
             // OkButton
             // 
             this.OkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OkButton.Location = new System.Drawing.Point(362, 372);
+            this.OkButton.Location = new System.Drawing.Point(362, 400);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(75, 23);
             this.OkButton.TabIndex = 9;
@@ -141,7 +141,7 @@
             // CancelButton
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.Location = new System.Drawing.Point(443, 372);
+            this.CancelButton.Location = new System.Drawing.Point(443, 400);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 10;
@@ -153,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 401);
+            this.ClientSize = new System.Drawing.Size(524, 429);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.NoteTextTextBox);

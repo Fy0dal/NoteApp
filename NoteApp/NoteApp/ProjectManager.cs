@@ -16,7 +16,8 @@ namespace NoteApp
         /// <summary>
         /// Путь к файлу.
         /// </summary>
-        private static string _defaultPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\NoteApp\Note.notes";
+        private static string _defaultPath = Environment.GetFolderPath
+        (Environment.SpecialFolder.ApplicationData) + @"\NoteApp\Note.notes";
 
         /// <summary>
         /// Свойство для пути к файлу.
