@@ -411,15 +411,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.ComboBox ColorComboBox;
-        private System.Windows.Forms.CheckBox VisibilityCheckBox;
-        private System.Windows.Forms.TextBox NumberTextBox;
-        private System.Windows.Forms.Label LabelTextBox;
-        private System.Windows.Forms.Label LabelComboBox;
-        private System.Windows.Forms.Button button1;
+       
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox NoteTextTextBox;
