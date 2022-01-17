@@ -84,7 +84,5 @@ namespace NoteAppUI
                 TitleTextBox.BackColor = Color.White;
             }
         }
-
-     
     }
 }
