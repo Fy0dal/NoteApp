@@ -19,7 +19,7 @@ namespace NoteAppUI
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
             ArrayList list = new ArrayList();
-            
+
         }
     }
 }
