@@ -12,7 +12,7 @@ namespace NoteApp
     /// <summary>
     public enum NoteCategory
     {
-       Other = 1,
+       Other ,
         Documents,
         Finance,
         HealthAndSport,
