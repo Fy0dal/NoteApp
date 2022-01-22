@@ -31,7 +31,7 @@ namespace NoteApp.UnitTests
         {
             // Setup
             var note = new Note();
-            string wrongName = "Жаль что не сможешь по порталам потаскать. Оставалось пару шмоток выбить для билда.((((((";
+            string wrongName = "12345678901234567890 12345678901234567890 12345678901234567890 12345678901234567890 12345678901234567890";
 
             // Assert
             Assert.Throws<ArgumentException>(() => 
