@@ -11,46 +11,63 @@ namespace NoteApp
     /// <summary>
     /// Класс менеджера проекта
     /// </summary>
-    public static class ProjectManager
+    public class ProjectManager
     {
         /// <summary>
-        /// Путь к файлу.
+        /// Путь по умолчанию,куда сохраняется файл
         /// </summary>
-        private static string _defaultPath = Environment.GetFolderPath
-        (Environment.SpecialFolder.ApplicationData) + @"\NoteApp\Note.notes";
-
-        /// <summary>
-        /// Свойство для пути к файлу.
-        /// </summary>
-        public static string DefaultPath
+        public static string PathFile()
         {
-            get => _defaultPath;
+            var filepath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            return filepath + @"\NoteApp\NoteApp.json";
         }
 
         /// <summary>
-        /// Метод сериализации данных.
+        /// Путь по умолчанию,по которому создается папка для файла
         /// </summary>
-        /// <param name="project">Данные для сериализации.</param>
-        /// <param name="filepath">Путь до файла</param>
-        public static void SaveToFile(Project project, string filePath)
+        public static string PathDirectory()
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-            var serializer = new JsonSerializer();
-            using (var sw = new StreamWriter(filePath))
-            using (var writer = new JsonTextWriter(sw))
+            var filepath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            return filepath + @"\NoteApp\";
+        }
+
+        /// <summary>
+        /// Сериализация данных
+        /// </summary>
+        /// <param name="data">Данные для сериализации</param>
+        /// <param name="filepath">Путь к файлу</param>
+        public static void SaveToFile(Project project, string filepath)
+        {
+            var directoryFile = Path.GetDirectoryName(filepath);
+            DirectoryInfo directoryInfo = new DirectoryInfo(directoryFile);
+            if (!Directory.Exists(directoryFile))
             {
-                //Вызываем сериализацию и передаем объект, который хотим сериализовать.
-                serializer.Serialize(writer, project);
+                directoryInfo.Create();
+            }
+
+            JsonSerializer serializer = new JsonSerializer();
+            using (StreamWriter sw = new StreamWriter(filepath))
+            {
+                using (JsonWriter writer = new JsonTextWriter(sw))
+                {
+                    serializer.Serialize(writer, project);
+                }
             }
         }
 
         /// <summary>
-        /// Метод десериализации данных.
+        /// Сериализация данных
         /// </summary>
+        /// <param name="filepath">Путь к файлу</param>
+        /// <returns></returns>
         public static Project LoadFromFile(string filepath)
         {
             Project project;
-            JsonSerializer serializer = new JsonSerializer();
+            if (!File.Exists(filepath))
+            {
+                return new Project();
+            }
+            var serializer = new JsonSerializer();
             try
             {
                 using (StreamReader sr = new StreamReader(filepath))

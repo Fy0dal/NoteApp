@@ -10,7 +10,7 @@ namespace NoteApp
     /// <summary>
     /// Класс заметки.
     /// </summary>
-    public class Note 
+    public class Note: ICloneable
     {
         /// <summary>
         /// Название
@@ -28,18 +28,18 @@ namespace NoteApp
             }
             set
             {
-                //  Исключение не введенного названия
-                if (value.Length == 0 || value == null)
+                if (value.Length >= 50)
                 {
-                    throw new ArgumentException("Name not writed");
+                    throw new ArgumentException("Name of note more 50 symbol");
                 }
-                
-                //  Исключение если название больше 50 символов
-                if (value.Length > 50)
+                else
                 {
-                    throw new ArgumentException("Name bigger 50 symbols");  
+                    if (value != "")
+                    {
+                        _name = value;
+                    }
+                    else _name = "Name not writed";
                 }
-                _name = value;
             }
         }
         /// <summary>
@@ -79,6 +79,22 @@ namespace NoteApp
         public object Clone()
         {
             return this.MemberwiseClone();
+        }
+
+        /// <summary>
+        /// Сравнивает значения двух заметок
+        /// </summary>
+        /// <param name="obj">Заметка, с которой идет сравнение</param>
+        /// <returns>true, если все поля одной заметки совпадают с другой, иначе - false</returns>
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Note other))
+            {
+                return false;
+            }
+
+            return Name == other.Name && Text == other.Text && Category == other.Category &&
+                CreatedTime == other.CreatedTime && ModifiedTime == other.ModifiedTime;
         }
     }
 }

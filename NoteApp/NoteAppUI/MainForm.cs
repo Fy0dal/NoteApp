@@ -30,11 +30,11 @@ namespace NoteAppUI
         /// </summary>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _project = ProjectManager.LoadFromFile(ProjectManager.DefaultPath);
+            _project = ProjectManager.LoadFromFile(ProjectManager.PathFile());
             _viewedNotes = _project.Notes;
             UpdateNotes();
             LastSelectedNote();
-            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+            ProjectManager.SaveToFile(_project, ProjectManager.PathFile());
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace NoteAppUI
                 {
                     ClearSelection();
                 }
-                ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+                ProjectManager.SaveToFile(_project, ProjectManager.PathFile());
             }
         }
 
@@ -130,7 +130,7 @@ namespace NoteAppUI
                 {
                     ClearSelection();
                 }
-                ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+                ProjectManager.SaveToFile(_project, ProjectManager.PathFile());
             }
         }
 
@@ -167,7 +167,7 @@ namespace NoteAppUI
                 {
                     ClearSelection();
                 }
-                ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+                ProjectManager.SaveToFile(_project, ProjectManager.PathFile());
             }
         }
 
@@ -232,7 +232,7 @@ namespace NoteAppUI
         /// </summary>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+            ProjectManager.SaveToFile(_project, ProjectManager.PathFile());
         }
 
         /// <summary>
