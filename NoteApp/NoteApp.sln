@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteAppUI", "NoteAppUI\Note
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{ACD524B8-96FD-4E9F-B8B1-5FEABD3E6CAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Testing\UnitTests\UnitTests.csproj", "{98D7F49E-8384-43E3-87B8-FD96003106F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteAppUnitTests", "Testing\NoteAppUnitTests\NoteAppUnitTests.csproj", "{D3EBA45F-A198-43EF-B1E2-28A274958517}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,16 +25,16 @@ Global
 		{0688FF2D-9DD4-4802-B680-BB3E3905575F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0688FF2D-9DD4-4802-B680-BB3E3905575F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0688FF2D-9DD4-4802-B680-BB3E3905575F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98D7F49E-8384-43E3-87B8-FD96003106F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98D7F49E-8384-43E3-87B8-FD96003106F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98D7F49E-8384-43E3-87B8-FD96003106F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98D7F49E-8384-43E3-87B8-FD96003106F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3EBA45F-A198-43EF-B1E2-28A274958517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3EBA45F-A198-43EF-B1E2-28A274958517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3EBA45F-A198-43EF-B1E2-28A274958517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3EBA45F-A198-43EF-B1E2-28A274958517}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{98D7F49E-8384-43E3-87B8-FD96003106F9} = {ACD524B8-96FD-4E9F-B8B1-5FEABD3E6CAC}
+		{D3EBA45F-A198-43EF-B1E2-28A274958517} = {ACD524B8-96FD-4E9F-B8B1-5FEABD3E6CAC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7688F253-FE35-4185-B836-9716E894573E}

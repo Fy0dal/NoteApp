@@ -6,11 +6,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{98D7F49E-8384-43E3-87B8-FD96003106F9}</ProjectGuid>
+    <ProjectGuid>{D3EBA45F-A198-43EF-B1E2-28A274958517}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitTests</RootNamespace>
-    <AssemblyName>UnitTests</AssemblyName>
+    <RootNamespace>NoteAppUnitTests</RootNamespace>
+    <AssemblyName>NoteAppUnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
