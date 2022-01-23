@@ -29,14 +29,14 @@ namespace NoteApp.UnitTests
         private static readonly string DefaultFilePath  = Environment.GetFolderPath(
             Environment.SpecialFolder.ApplicationData) + @"\NoteApp\NoteApp.notes";
 
-        private static readonly string ExceptedFileName = DirectoryInformation + @"\expectedProject.json";
+        private static readonly string ExpectedFileName = DirectoryInformation + @"\expectedProject.json";
         [Test]
         public void SaveToFile_CorrectProject_FileSavedCorrectly()
         {
             // Setup
-            var exceptedProject = new Project();
-            exceptedProject = ExpectedProject();
-            var expectedFileContent = File.ReadAllText(ExceptedFileName);
+            var expectedProject = new Project();
+            expectedProject = ExpectedProject();
+            var expectedFileContent = File.ReadAllText(ExpectedFileName);
 
             if (Directory.Exists(DirectoryInformation + @"\actualProject.json"))
             {
@@ -45,7 +45,7 @@ namespace NoteApp.UnitTests
 
             // Act
             var actualFileName = DirectoryInformation + @"\actualProject.json";
-            ProjectManager.SaveToFile(exceptedProject, actualFileName);
+            ProjectManager.SaveToFile(expectedProject, actualFileName);
             var actualFileContent = File.ReadAllText(actualFileName);
 
             // Assert
@@ -58,28 +58,28 @@ namespace NoteApp.UnitTests
         public void LoadFromFile_CorrectProject_FileLoadedCorrectly()
         {
             // Setup
-            var exceptedProject = new Project();
-            exceptedProject = ExpectedProject();
+            var expectedProject = new Project();
+            expectedProject = ExpectedProject();
 
             // Act
-            var actualProject = ProjectManager.LoadFromFile(ExceptedFileName);
+            var actualProject = ProjectManager.LoadFromFile(ExpectedFileName);
 
             // Assert
-            Assert.AreEqual(exceptedProject.Notes.Count, actualProject.Notes.Count);
+            Assert.AreEqual(expectedProject.Notes.Count, actualProject.Notes.Count);
             Assert.Multiple(() =>
             {
-                for (int i = 0; i < exceptedProject.Notes.Count; i++)
+                for (int i = 0; i < expectedProject.Notes.Count; i++)
                 {
-                    Assert.AreEqual(exceptedProject.Notes[i], actualProject.Notes[i]);
+                    Assert.AreEqual(expectedProject.Notes[i], actualProject.Notes[i]);
                 }
             });
         }
 
         [Test]
-        public void LoadFromFile_UnCorrectFile_ReturnEmptyProject()
+        public void LoadFromFile_NonExistentFile_ReturnEmptyProject()
         {
             // Setup
-            var nonExistentFileName = DirectoryInformation + @"\UnCorrect.notes";
+            var nonExistentFileName = DirectoryInformation + @"\nonexist.notes";
 
             // Act
             var actualProject = ProjectManager.LoadFromFile(nonExistentFileName);
@@ -87,6 +87,19 @@ namespace NoteApp.UnitTests
             // Assert
             Assert.IsNotNull(actualProject);
             Assert.AreEqual(actualProject.Notes.Count, 0);
+        }
+        [Test]
+        public void LoadFromFile_UnCorrectFile_ReturnEmptyProject()
+        {
+            //Setup
+            var testDataFolder = DirectoryInformation;
+            var testFileName = testDataFolder + @"\UnCorrectFile.json";
+
+            //Act
+            var actualProject = ProjectManager.LoadFromFile(testFileName);
+
+            //Assert
+            Assert.IsEmpty(actualProject.Notes);
         }
 
         public Project ExpectedProject()
@@ -100,7 +113,6 @@ namespace NoteApp.UnitTests
                 CreatedTime = new DateTime(2022, 01, 19),
                 ModifiedTime = new DateTime(2022, 01, 19)
             });
-            ProjectManager.SaveToFile(expectedProject, ExceptedFileName);
             return expectedProject;
         }
     }

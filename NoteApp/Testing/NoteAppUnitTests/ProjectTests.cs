@@ -29,24 +29,5 @@ namespace NoteApp.UnitTests
             Assert.AreEqual(expected[0].Text, actual[0].Text);
             Assert.AreEqual(expected[0].Category, actual[0].Category);
         }
-
-        [Test]
-        public void Text_CorrectText_SetsCorrectText()
-        {
-            // Setup
-            var project = new Project();
-            var expected = new List<Note>();
-            expected.Add(new Note("Name1", "Text1", NoteCategory.Other));
-
-            // Act
-            project = new Project();
-            project.Notes = expected;
-            var actual = project.Notes;
-
-            // Assert
-            Assert.AreEqual(expected[0].Name, actual[0].Name);
-            Assert.AreEqual(expected[0].Text, actual[0].Text);
-            Assert.AreEqual(expected[0].Category, actual[0].Category);
-        }
     }
 }
