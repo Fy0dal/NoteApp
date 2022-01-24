@@ -118,4 +118,15 @@
     <None Include="Resources\RemoveNoteButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>rd /S /Q "$(SolutionDir)\Installer\InstallScripts\Release"
+rd /S /Q "$(SolutionDir)\Installer\InstallScripts\Installers"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>md "$(SolutionDir)\Installer\InstallScripts"
+md "$(SolutionDir)\Installer\InstallScripts\Release"
+md "$(SolutionDir)\Installer\InstallScripts\Installers"
+xcopy "$(ProjectDir)$(OutDir)*.dll" "$(SolutionDir)\Installer\InstallScripts\Release\"
+xcopy "$(ProjectDir)$(OutDir)*.exe" "$(SolutionDir)\Installer\InstallScripts\Release\"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

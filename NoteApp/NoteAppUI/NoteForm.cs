@@ -33,6 +33,34 @@ namespace NoteAppUI
         }
 
         /// <summary>
+        /// Создание новой заметки
+        /// </summary>
+        private void NewNote()
+        {
+            string text = TitleTextBox.Text;
+            Note.Name = text;
+            Note.Text = NoteTextTextBox.Text;
+            Note.CreatedTime = CreatedDateTimePicker.Value;
+            Note.ModifiedTime = ModifiedDateTimePicker.Value;
+            Note.Category = (NoteCategory)CategoryComboBox.SelectedItem;
+        }
+
+        /// <summary>
+        /// Окраска полей, если введено более 50 символов
+        /// </summary>
+        private void TitleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (TitleTextBox.Text.Length > 50)
+            {
+                TitleTextBox.BackColor = Color.LightCoral;
+            }
+            else
+            {
+                TitleTextBox.BackColor = Color.White;
+            }
+        }
+
+        /// <summary>
         /// OK
         /// </summary>
         private void OkButton_Click(object sender, EventArgs e)
@@ -55,34 +83,6 @@ namespace NoteAppUI
         private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        /// <summary>
-        /// Создание новой заметки
-        /// </summary>
-        private void NewNote()
-        {
-                string text = TitleTextBox.Text;
-                Note.Name = text;
-                Note.Text = NoteTextTextBox.Text;
-                Note.CreatedTime = CreatedDateTimePicker.Value;
-                Note.ModifiedTime = ModifiedDateTimePicker.Value;
-                Note.Category = (NoteCategory)CategoryComboBox.SelectedItem;
-        }
-
-        /// <summary>
-        /// Окраска полей, если введено более 50 символов
-        /// </summary>
-        private void TitleTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (TitleTextBox.Text.Length > 50)
-            {
-                TitleTextBox.BackColor = Color.LightCoral;
-            }
-            else
-            {
-                TitleTextBox.BackColor = Color.White;
-            }
         }
     }
 }

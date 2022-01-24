@@ -38,6 +38,26 @@ namespace NoteAppUI
         }
 
         /// <summary>
+        /// Вывод информации о выбранной заметки. 
+        /// </summary>
+        private void NotesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedIndex = NoteListBox.SelectedIndex;
+            if (selectedIndex == -1)
+            {
+                ClearSelection();
+                return;
+            }
+            var selectedNote = _viewedNotes[selectedIndex];
+            _notes.CurrentIndexNote = selectedIndex;
+            TitleLabel.Text = selectedNote.Name;
+            Categorylabel.Text = selectedNote.Category.ToString();
+            CreatedDateTimePicker.Value = selectedNote.CreatedTime;
+            ModifiefDateTimePicker.Value = selectedNote.ModifiedTime;
+            NoteTextTextBox.Text = selectedNote.Text;
+        }
+
+        /// <summary>
         /// Последняя выбранная заметка.
         /// </summary>
         private void LastSelectedNote()
@@ -172,6 +192,27 @@ namespace NoteAppUI
         }
 
         /// <summary>
+        /// Очищение полей, после удаления выбранной заметки.
+        /// </summary>
+        private void ClearSelection()
+        {
+            TitleLabel.Text = "";
+            Categorylabel.Text = "";
+            CreatedDateTimePicker.Value = DateTime.Now;
+            ModifiefDateTimePicker.Value = DateTime.Now;
+            NoteTextTextBox.Text = "";
+        }
+
+        /// <summary>
+        /// Вызов окна About.
+        /// </summary>
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
+        }
+
+        /// <summary>
         /// Добавление новой заметки по нажатию на add.
         /// </summary>
         private void AddNoteButton_Click(object sender, EventArgs e)
@@ -193,38 +234,6 @@ namespace NoteAppUI
         private void RemoveNoteButton_Click(object sender, EventArgs e)
         {
             RemoveNote();
-        }
-
-        /// <summary>
-        /// Вывод информации о выбранной заметки. 
-        /// </summary>
-        private void NotesListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var selectedIndex = NoteListBox.SelectedIndex;
-            if (selectedIndex == -1)
-            {
-                ClearSelection();
-                return;
-            }
-            var selectedNote = _viewedNotes[selectedIndex];
-            _notes.CurrentIndexNote = selectedIndex;
-            TitleLabel.Text = selectedNote.Name; 
-            Categorylabel.Text = selectedNote.Category.ToString();
-            CreatedDateTimePicker.Value = selectedNote.CreatedTime;
-            ModifiefDateTimePicker.Value = selectedNote.ModifiedTime;
-            NoteTextTextBox.Text = selectedNote.Text;
-        }
-
-        /// <summary>
-        /// Очищение полей, после удаления выбранной заметки.
-        /// </summary>
-        private void ClearSelection()
-        {
-            TitleLabel.Text = "";
-            Categorylabel.Text = "";
-            CreatedDateTimePicker.Value = DateTime.Now;
-            ModifiefDateTimePicker.Value = DateTime.Now;
-            NoteTextTextBox.Text = "";
         }
 
         /// <summary>
@@ -265,15 +274,6 @@ namespace NoteAppUI
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RemoveNote();
-        }
-       
-        /// <summary>
-        /// Вызов окна About.
-        /// </summary>
-        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            AboutForm aboutForm = new AboutForm();
-            aboutForm.ShowDialog();
         }
        
         /// <summary>
