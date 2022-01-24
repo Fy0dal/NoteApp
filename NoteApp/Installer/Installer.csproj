@@ -56,7 +56,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>"$(SolutionDir)packages\Tools.InnoSetup.6.2.0\tools\ISCC.exe" 
-"$(SolutionDir)Installer\InstallScripts\installer.iss"</PostBuildEvent>
+"$(SolutionDir)Installer\InstallScripts\Installers\NoteAppSetup.exe"</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
