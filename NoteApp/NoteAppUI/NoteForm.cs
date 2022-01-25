@@ -5,8 +5,14 @@ using System.Drawing;
 
 namespace NoteAppUI
 {
+    /// <summary>
+    /// Класс формы, для добавления/изменения заметки
+    /// </summary>
     public partial class NoteForm : Form
     {
+        /// <summary>
+        /// Поле  текущей заметки
+        /// </summary>
         private Note _note = new Note();
 
         /// <summary>

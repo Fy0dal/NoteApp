@@ -10,7 +10,7 @@ namespace NoteApp
     /// <summary>
     /// Класс заметки.
     /// </summary>
-    public class Note: ICloneable
+    public class Note
     {
         /// <summary>
         /// Название
